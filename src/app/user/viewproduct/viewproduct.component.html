@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+    <div class="viewdetail container-xxl">
+      <div class="row" *ngFor="let p of product">
+        <div class="col-lg-2"></div>
+        <div class="img col-lg-5">
+     
+        <img  [src]="p.img"  style="padding-left:3px;" width="400" height="400">
+      </div>
+    
+
+      
+     
+
+       <div class="col-lg-5">
+        <div class="product-description">
+          <span>{{p.brand}}</span>
+          <h1>{{p.name}}</h1>
+          <h5>{{p.category}}</h5>
+          <p>{{p.description}}</p>
+          <span>instock:{{p.totalAvailable}}</span>
+        </div>
+
+       
+
+        <!-- Product Pricing -->
+        <div class="product-price">
+          <span>₹{{p.price}}</span><br><br><br>
+        
+      
+    </div>
+    <button class="btn btn-danger float-right mt-2" (click)="addToWishlist(p)">Add to
+      wishlist</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button  class="btn btn-primary float-right mt-2" *ngIf="p.available" (click)="addToCart(p)">Add to
+      cart</button>
+  <button class="btn btn-secondary float-right mt-2" *ngIf="!p.available" disabled>Out of
+      Stock</button>
+  </div></div></div>
+  
+<app-footer></app-footer>

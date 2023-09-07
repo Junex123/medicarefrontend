@@ -1,0 +1,23 @@
+
+
+
+
+.custom-col {
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+    padding: 0;
+    color: black;
+    
+  }
+  .card{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    justify-content: center;
+  }
+  .service-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+    display: flex;
+   
+}
+

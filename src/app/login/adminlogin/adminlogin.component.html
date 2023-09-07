@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-sm-6">
+            <h2>Login for Admin</h2>
+            <p>Please fill out this to login</p>
+            <form #login="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="email"><b>Username:</b></label> <input type="text" name="username"
+                        #username="ngModel" class="form-control" placeholder="Enter Username" id="email"
+                        [(ngModel)]="credentials.username" required ngModel>
+                    <span *ngIf="username.invalid && username.touched" style="color:red">Please enter a valid
+                        username.</span>
+                </div>
+                <div class="form-group">
+                    <label for="pwd"><b>Password:</b></label> <input type="password" name="password"
+                        #password="ngModel" minlength="6" class="form-control" placeholder="Enter password"
+                        id="pwd" [(ngModel)]="credentials.password" required ngModel>
+                    <span *ngIf="password.invalid && password.touched" style="color: red">Please enter a valid
+                        password.</span>
+                </div>
+               <div class="form-group">
+             </div><br>
+                <input type="submit" value="Login" [disabled]="login.invalid" class="btn btn-primary btn-block">
+                
+            </form>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+

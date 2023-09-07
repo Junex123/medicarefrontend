@@ -1,0 +1,145 @@
+<app-navbar></app-navbar>
+
+
+  <div class="black container-xxl">
+    <div class="row">
+
+        <div class="col custom-col card bg-light">
+            <img class="card-img-top" src="assets/cardiac.png" alt="cardiac.png"
+                style="width:100%; height:130px;">
+            <div class="card-body text-center mt-1">
+                <a routerLink="/allcategory/{{medicine[0]}}">Cardiac Care</a>
+            </div>
+        </div>
+        <div class="card col custom-col bg-light">
+            <img class="card-img-top" src="assets/diabetic.png" alt="diabetic.png"
+                style="width:100%; height:130px;">
+
+            <div class="card-body text-center mt-1">
+                <a routerLink="/allcategory/{{medicine[1]}}">Diabetic Care</a>
+            </div>
+        </div>
+        <div class="card col custom-col bg-light">
+            <img class="card-img-top" src="assets/gastro.png" alt="gastro.png"
+                style="width:100%; height:130px;">
+
+            <div class="card-body text-center mt-1">
+                <a routerLink="/allcategory/{{medicine[2]}}">Gastro & Liver</a>
+            </div>
+        </div>
+
+        <div class="card col custom-col bg-light">
+            <img class="card-img-top" src="assets/urology.png" alt="urology.png"
+                style="width:100%; height:130px;">
+
+            <div class="card-body text-center mt-1">
+                <a routerLink="/allcategory/{{medicine[3]}}">Urology Care</a>
+            </div>
+        </div>
+
+
+
+        <div class="card col custom-col bg-light">
+            <img class="card-img-top" src="assets/ai.png" alt="ai.png"
+                style="width:100%; height:130px;">
+
+            <div class="card-body text-center mt-1">
+                <a routerLink="/allcategory/{{medicine[4]}}">Anti Infectives</a>
+            </div>
+        </div>
+
+        <div class="card col custom-col bg-light">
+            <img class="card-img-top" src="assets/gynaecology.png" alt="gynaecology.png"
+                style="width:100%; height:130px;">
+
+            <div class="card-body text-center mt-1">
+                <a routerLink="/allcategory/{{medicine[5]}}">Gynaecology Care</a>
+            </div>
+        </div>
+
+        <div class="card col custom-col bg-light">
+            <img class="card-img-top" src="assets/ortho.png" alt="ortho.png"
+                style="width:100%; height:130px;">
+
+            <div class="card-body text-center mt-1">
+                <a routerLink="/allcategory/{{medicine[6]}}">Pain Relief</a>
+            </div>
+        </div>
+
+        <div class="card col custom-col bg-light">
+            <img class="card-img-top" src="assets/vitamins.png" alt="vitamins.png"
+                style="width:100%; height:130px;">
+
+            <div class="card-body text-center mt-1">
+                <a routerLink="/allcategory/{{medicine[7]}}">Daily Health Care</a>
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+
+  
+  <div class="container-xxl " >
+    
+  <ul class="navbar-nav ml-auto mx-4">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Sort by
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" role="button" (click)="sortByPriceLowToHigh()">Price: Low To High</a>
+            <a class="dropdown-item" role="button" (click)="sortByPriceHighToLow()">Price: High To Low</a>
+            <a class="dropdown-item" role="button" (click)="sortByNameAscending()">Name: A-Z</a>
+            <a class="dropdown-item" role="button" (click)="sortByNameDescending()">Name: Z-A</a>
+        </div>
+    </li>
+  </ul>
+  <div class="col-lg-12 " >
+    <div class="row " >
+      
+       
+                <div class="service-item  col-lg-3 mb-2 g-3 mb-lg-1px card" 
+                *ngFor="let p of product | paginate : 
+                {
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                }">
+                 
+                   
+                    <img [src]="p.img "
+                      class="card-img-top" width="250" height="250"  />
+                    <div class="card-body">
+                  
+          
+                      <div class="d-flex justify-content-between mb-3">
+                        <h5 class="mb-0">{{p.name}}</h5>
+                        <h5 class="text-dark mb-0">₹{{p.price}}</h5>
+                      </div>
+          
+                      <div class=" justify-content-between mb-2 text-center">
+                        <a  (click)="getproductinfoBasedonID(p.name)"  class="btn btn-primary">View product</a>
+                       
+                      </div>
+                      
+                    </div>
+                   
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+                    </pagination-controls>
+                </div>
+                </div>
+                
+              
+              
+                
+              </div>
+            
+         
+    </div>
+
+
+
+<app-footer></app-footer>

@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+
+
+<div class="container-xxl " >
+    <h4>Search results for <b>{{medicineName}}</b></h4>
+  <ul class="navbar-nav ml-auto mx-4">
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Sort by
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" role="button" (click)="sortByPriceLowToHigh()">Price: Low To High</a>
+            <a class="dropdown-item" role="button" (click)="sortByPriceHighToLow()">Price: High To Low</a>
+            <a class="dropdown-item" role="button" (click)="sortByNameAscending()">Name: A-Z</a>
+            <a class="dropdown-item" role="button" (click)="sortByNameDescending()">Name: Z-A</a>
+        </div>
+    </li>
+  </ul>
+  <div class="col-lg-12 " >
+    <div class="row " >
+      
+       
+                <div class="service-item  col-lg-3 mb-2 g-3 mb-lg-1px card" 
+                *ngFor="let p of product | paginate : 
+                {
+                    itemsPerPage: tableSize,
+                    currentPage: page,
+                    totalItems: count
+                }">
+                 
+                   
+                    <img [src]="p.img "
+                      class="card-img-top" width="250" height="250"  />
+                    <div class="card-body">
+                  
+          
+                      <div class="d-flex justify-content-between mb-3">
+                        <h5 class="mb-0">{{p.name}}</h5>
+                        <h5 class="text-dark mb-0">₹{{p.price}}</h5>
+                      </div>
+          
+                      <div class=" justify-content-between mb-2 text-center">
+                        <a  (click)="getproductinfoBasedonID(p.name)"  class="btn btn-primary">View product</a>
+                     
+                      </div>
+                     
+                    </div>
+
+                  </div>
+                  
+                </div>
+                
+               
+                <div class="d-flex justify-content-center">
+                  <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+                  </pagination-controls>
+              </div>
+                
+              </div>
+            
+         
+    </div>
+
+
+
+
+
+
+
+
+<app-footer></app-footer>

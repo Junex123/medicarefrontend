@@ -1,0 +1,39 @@
+<router-outlet></router-outlet>
+<app-adminnavbar></app-adminnavbar>
+<div class="container">
+    <div class="row">
+        <div class="well col-xs-10 col-sm-10 col-md-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+
+            <div class="row"></div>
+                <div class="text-center">
+                    <h1>Contact Us List</h1>
+                </div>
+
+                <table id="ContactList" class="table table-hover">
+                    <thead>
+                    <tr>
+            			<th scope="col">ID</th>
+            			<th scope="col">Name</th>
+            			<th scope="col">Email</th>
+            			<th scope="col">Subject</th>
+            			<th scope="col">Message</th>
+            			<th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr *ngFor="let p of product">
+                    	<td>{{p.id}}</td>
+                        <td>{{p.name}}</td>
+						<td>{{p.email}}</td>
+						<td>{{p.subject}}</td>
+						<td>{{p.message}}</td>
+                        <td> <button type="button" class="btn btn-outline-danger"
+                            (click)="deletecontactus(p.id)">Delete</button></td>
+                    </tr>
+                    </tbody>
+                </table>         
+                
+            </div>
+        </div>
+ </div>

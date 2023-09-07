@@ -1,0 +1,52 @@
+<router-outlet></router-outlet>
+<app-adminnavbar></app-adminnavbar>
+
+
+<div class="container">
+    <div class="row">
+        <div class="well col-xs-10 col-sm-10 col-md-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+
+            <div class="row">
+                <div class="text-center">
+                    <h1>User-list</h1>
+                </div>
+
+                <table id="userReport" class="table table-hover mt-3 pt-3">
+                    <thead>
+                    <tr>
+                       
+                        <th scope="col">User Id</th>
+            			<th scope="col">Username</th>
+            			<th scope="col">firstName</th>
+                        <th scope="col">lastName</th>
+            			<th scope="col">Email</th>
+            			<th scope="col">contactNumber</th>
+            			<th scope="col">Delete User</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr *ngFor="let user of users">
+                    
+                    	
+						<td> {{user.userId}}</td>
+						<td>{{user.username}}</td>
+                        <td> {{user.firstName}}</td>
+						<td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+						<td> {{user.contactNumber}}</td>
+                        <td><button class=" btn btn-danger"  (click)="deleteEmpInfo(user.userId)" >Delete</button></td>
+						
+						
+                    </tr>
+                    </tbody>
+                </table>         
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
